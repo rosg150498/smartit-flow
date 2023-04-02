@@ -60,3 +60,12 @@ Technician_ID will serve as an unique identifier, while First_Name and Last_Name
  * The system should be scalable and able to handle a large volume of issues.
  
  ## Expectations
+ 
+ * The ability to create new issues with unique IDs and store them in a spreadsheet.
+ * The ability to view and search exisiting issues by ID, status, category, or priority level. 
+ * The ability to assign technicians to issues and track their progress.
+ * The ability to add resolution notes and mark issues as resolved.
+ * The ability to generate reports and statistics on the status of issues and the performance of technicians.
+ * The ability to send notifications to technicians or users when issues are updated or resolved.
+ * The system should be secure and protect user data including contact number and issue information.
+ * The system should be scalale and able to handle a growing number of issues and users.
