@@ -50,4 +50,13 @@ Technician_ID will serve as an unique identifier, while First_Name and Last_Name
  
  ## Requirements
  
+ * The system should allow users to submit new issues with a description and enter in a contact number
+ * The system should assign a unique issue ID to each new issue.
+ * The system should specify each issue into category and priority level
+ * The system should allow users to view the status of their submitted issues.
+ * The system should allow technicians to view and manage issues assigned to them.
+ * The system should allow technicians to update the status of an issue and add resolution notes.
+ * The system should reporting capabilities, such as generating reports on issue resolution times and open issues by category or priority level. 
+ * The system should be scalable and able to handle a large volume of issues.
+ 
  ## Expectations
