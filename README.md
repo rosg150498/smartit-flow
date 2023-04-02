@@ -47,3 +47,5 @@ Technician_ID will serve as an unique identifier, while First_Name and Last_Name
  Priority_ID will serve as a unique identifier, while Priority_Name will provide a descriptive label for each priority level.
  
  <hr>
+ 
+ ## Requirements
