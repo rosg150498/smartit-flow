@@ -42,6 +42,4 @@ print("IT Issue category:", chosen_category)
 
 print("User Issue:", issue_description)
 
-print("IT Category:", chosen_category)
-
 print("User Contact Number:", contact_number)
