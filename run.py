@@ -23,8 +23,24 @@ elif len(issue_id_formatted) == 2:
 else:
     issue_id_prefixed = issue_id_formatted
 
+
+categories = ["Hardware", "Software", "Network", "Other"]
+print("IT Issue Category: ")
+for i, category in enumerate(categories):
+    print(f"{i+1}. {category}")
+
+category_choice = input("Enter the number for the category for the issue: ")
+while not category_choice.isdigit() or int(category_choice) < 1 or int(
+     category_choice) > len(categories):
+    category_choice = input("Invalid input. Enter the category number: ")
+
+chosen_category = categories[int(category_choice)-1]
+print("Chosen category:", chosen_category)
+
 print("Issue ID:", issue_id_prefixed)
 
 print("User Issue:", issue_description)
+
+print("IT Category:", chosen_category)
 
 print("User Contact Number:", contact_number)
