@@ -35,9 +35,10 @@ while not category_choice.isdigit() or int(category_choice) < 1 or int(
     category_choice = input("Invalid input. Enter the category number: ")
 
 chosen_category = categories[int(category_choice)-1]
-print("Chosen category:", chosen_category)
 
 print("Issue ID:", issue_id_prefixed)
+
+print("IT Issue category:", chosen_category)
 
 print("User Issue:", issue_description)
 
