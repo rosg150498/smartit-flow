@@ -4,6 +4,8 @@ IT Issue Tracking Management System
 The script allows users to manage IT Issues
 """
 
+from datetime import datetime
+
 issue_id_counter = 1
 
 issue_description = input("Enter issue description: ")
@@ -36,6 +38,8 @@ while not category_choice.isdigit() or int(category_choice) < 1 or int(
 
 chosen_category = categories[int(category_choice)-1]
 
+issue_date_created = datetime.now()
+
 print("Issue ID:", issue_id_prefixed)
 
 print("IT Issue category:", chosen_category)
@@ -43,3 +47,5 @@ print("IT Issue category:", chosen_category)
 print("User Issue:", issue_description)
 
 print("User Contact Number:", contact_number)
+
+print("IT Issue Date Created:", issue_date_created)
