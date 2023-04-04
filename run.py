@@ -8,7 +8,11 @@ issue_id_counter = 1
 
 issue_description = input("Enter issue description: ")
 
-contact_number = input("Enter contact number: ")
+while True:
+    contact_number = input("Enter contact number: ")
+    if contact_number.isdigit():
+        break
+    print("Invalid input. Please enter a number.")
 
 issue_id_formatted = str(issue_id_counter).zfill(2)
 
