@@ -23,7 +23,7 @@ elif len(issue_id_formatted) == 2:
 else:
     issue_id_prefixed = issue_id_formatted
 
-print("Issue ID:", issue_id_counter)
+print("Issue ID:", issue_id_prefixed)
 
 print("User Issue:", issue_description)
 
