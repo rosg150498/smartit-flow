@@ -6,6 +6,18 @@ The script allows users to manage IT Issues
 
 from datetime import datetime
 
+import gspread 
+from google.oauth2.service_account import Credentials
+
+SCOPE = [
+   "https://www.googleapis.com/auth/spreadsheets"
+]
+
+CREDS = Credentials.from_service_account_file('smartitflow-credentials.json')
+SCOPE_CREDS = CREDS.with_scopes(SCOPE)
+GSPREAD_CLIENT = gspread.authorize(SCOPE_CREDS)
+SHEET = GSPREAD_CLIENT.open('SmartIT-Flow')
+
 issue_id_counter = 1
 
 issue_description = input("Enter issue description: ")
