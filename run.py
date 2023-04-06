@@ -53,6 +53,17 @@ chosen_category = categories[int(category_choice)-1]
 
 issue_date_created = datetime.now()
 
+
+worksheet = SHEET.worksheet('Issue')
+
+worksheet.append_row([
+    issue_id_prefixed, 
+    chosen_category, 
+    issue_description, 
+    contact_number, 
+    issue_date_created.strftime("%d/%m/%Y %H:%M:%S")
+])
+
 print("Issue ID:", issue_id_prefixed)
 
 print("IT Issue category:", chosen_category)
