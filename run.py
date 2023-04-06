@@ -64,6 +64,16 @@ worksheet.append_row([
     issue_date_created.strftime("%d/%m/%Y %H:%M:%S")
 ])
 
+client = gspread.authorize(CREDS)
+sheet = client.open('SmartIT-Flow').worksheet('issue')
+
+records = sheet.get_all_records()
+
+# print the records
+for record in records:
+    print(record)
+
+
 print("Issue ID:", issue_id_prefixed)
 
 print("IT Issue category:", chosen_category)
