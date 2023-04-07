@@ -21,7 +21,20 @@ SCOPE_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPE_CREDS)
 SHEET = GSPREAD_CLIENT.open('SmartIT-Flow')
 
-issue_id_counter = 1
+
+# Increment User_ID by 1 for each entered user issue 
+
+def get_max_id():
+    worksheet = SHEET.worksheet('Issue')
+    values = worksheet.col_values(1)[2:]  # skip header and User_ID heading
+    if not values:
+        return 0
+    max_id = max(values)
+    return int(max_id)
+
+
+worksheet = SHEET.worksheet('Issue')
+issue_id_counter = get_max_id() + 1
 
 issue_description = input("Enter issue description: ")
 
@@ -30,16 +43,6 @@ while True:
     if contact_number.isdigit():
         break
     print("Invalid input. Please enter a number.")
-
-issue_id_formatted = str(issue_id_counter).zfill(2)
-
-if len(issue_id_formatted) == 3:
-    issue_id_prefixed = '00' + issue_id_formatted
-elif len(issue_id_formatted) == 2:
-    issue_id_prefixed = '0' + issue_id_formatted
-else:
-    issue_id_prefixed = issue_id_formatted
-
 
 categories = ["Hardware", "Software", "Network", "Other"]
 print("IT Issue Category: ")
@@ -55,24 +58,21 @@ chosen_category = categories[int(category_choice)-1]
 
 issue_date_created = datetime.now()
 
-
-worksheet = SHEET.worksheet('Issue')
+issue_id_formatted = str(issue_id_counter).zfill(3)
 
 worksheet.append_row([
-    issue_id_prefixed, 
+    issue_id_formatted, 
     chosen_category, 
     issue_description, 
     contact_number, 
     issue_date_created.strftime("%d/%m/%Y %H:%M:%S")
 ])
 
-
 user_issues = SHEET.worksheet('Issue')
 
 issues = user_issues.get_all_values()
 
-
-print("Issue ID:", issue_id_prefixed)
+print("Issue ID:", issue_id_formatted)
 
 print("IT Issue category:", chosen_category)
 
