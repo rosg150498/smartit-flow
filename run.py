@@ -11,10 +11,12 @@ from google.oauth2.service_account import Credentials
 
 SCOPE = [
    "https://www.googleapis.com/auth/spreadsheets",
+   "https://www.googleapis.com/auth/drive.file",
    "https://www.googleapis.com/auth/drive"
 ]
 
-CREDS = Credentials.from_service_account_file('smartitflow-credentials.json')
+CREDS = Credentials.from_service_account_file(
+    'smartitflow-systemcredentials.json')
 SCOPE_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPE_CREDS)
 SHEET = GSPREAD_CLIENT.open('SmartIT-Flow')
@@ -64,14 +66,10 @@ worksheet.append_row([
     issue_date_created.strftime("%d/%m/%Y %H:%M:%S")
 ])
 
-client = gspread.authorize(CREDS)
-sheet = client.open('SmartIT-Flow').worksheet('issue')
 
-records = sheet.get_all_records()
+user_issues = SHEET.worksheet('Issue')
 
-# print the records
-for record in records:
-    print(record)
+issues = user_issues.get_all_values()
 
 
 print("Issue ID:", issue_id_prefixed)
@@ -83,3 +81,5 @@ print("User Issue:", issue_description)
 print("User Contact Number:", contact_number)
 
 print("IT Issue Date Created:", issue_date_created)
+
+print(issues)
