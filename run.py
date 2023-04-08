@@ -44,8 +44,14 @@ def search_issues(search_term):
         print(row)
 
 
+chosen_category = ''
+issue_description = ''
+contact_number = ''
+issue_date_created = ''
+issue_id_formatted = ''
+
+
 def add_issue():
-    global issue_id_counter
     issue_id_counter = get_max_id() + 1
 
     issue_description = input("Enter issue description: ")
@@ -84,6 +90,13 @@ def add_issue():
     print("Issue has been added successfully!")
 
 
+issue_id_formatted = issue_id_formatted
+chosen_category = chosen_category
+issue_description = issue_description
+contact_number = contact_number
+issue_date_created = issue_date_created
+
+
 while True:
     action = input('Enter action (search / add / quit): ')
 
@@ -113,3 +126,5 @@ print("User Issue:", issue_description)
 print("User Contact Number:", contact_number)
 
 print("IT Issue Date Created:", issue_date_created)
+
+print(issues)     
