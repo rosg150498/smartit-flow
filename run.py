@@ -97,6 +97,22 @@ contact_number = contact_number
 issue_date_created = issue_date_created
 
 
+def update_user():
+    
+    user_id = input("Enter the User ID of the user you want to update:")
+
+    worksheet = SHEET.worksheet('User')
+    user_rows = worksheet.get_all_values()
+    user_row = None
+    for row in user_rows[1:]:
+        if row[0] == user_id: 
+            user_row = row
+            break
+    if user_row is None:
+        print(f"No user found with ID {user_id}.")
+        return 
+
+
 while True:
     action = input('Enter action (search / add / quit): ')
 
