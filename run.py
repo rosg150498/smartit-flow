@@ -98,7 +98,7 @@ issue_date_created = issue_date_created
 
 
 def update_user():
-    
+
     user_id = input("Enter the User ID of the user you want to update:")
 
     worksheet = SHEET.worksheet('User')
@@ -112,22 +112,30 @@ def update_user():
         print(f"No user found with ID {user_id}.")
         return 
 
+    print(f"Current results for user {user_id}:")
+    print(f"Category: {user_row[1]}")
+    print(f"Issue Description: {user_row[2]}")
+    print(f"Contact Number: {user_row[3]}")
+
 
 while True:
-    action = input('Enter action (search / add / quit): ')
+    action = input('Enter action (search / add / update / quit): ')
 
     if action == 'search':
         search_term = input('Enter search term: ')
         search_issues(search_term)
 
-    elif action == 'add':
+    elif action == 'add issue':
         add_issue()
+
+    elif action == 'update':
+        update_user()
 
     elif action == 'quit':
         break
 
     else: 
-        print("Invalid input. Please enter 'search', 'add', or 'quit'.")
+        print("Invalid input.Please enter 'search', 'add', 'update' or 'quit'")
 
 user_issues = SHEET.worksheet('Issue')
 
