@@ -119,7 +119,7 @@ def update_user():
 
 
 while True:
-    action = input('Enter action (search / add / update / quit): ')
+    action = input('Enter action (search / add / update / delete / quit): ')
 
     if action == 'search':
         search_term = input('Enter search term: ')
@@ -134,7 +134,7 @@ while True:
     elif action == 'delete':
         user_id = input("Enter the User ID of the user you want to delete: ")
 
-        worksheet = SHEET.worksheet('User')
+        worksheet = SHEET.worksheet('Issue')
         user_rows = worksheet.get_all_values()
         user_row = None
         for row in user_rows[1:]:
