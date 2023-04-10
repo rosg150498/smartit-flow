@@ -131,6 +131,24 @@ while True:
     elif action == 'update':
         update_user()
 
+    elif action == 'delete':
+        user_id = input("Enter the User ID of the user you want to delete: ")
+
+        worksheet = SHEET.worksheet('User')
+        user_rows = worksheet.get_all_values()
+        user_row = None
+        for row in user_rows[1:]:
+            if row[0] == user_id:
+                user_row = row
+                break
+
+        if user_row is None:
+            print(f"No user is found with ID {user_id}.") 
+            continue
+
+        worksheet.delete_row(user_rows.index(user_row)+1)
+        print(f"The User with ID {user_id} has been deleted.")
+
     elif action == 'quit':
         break
 
