@@ -108,7 +108,7 @@ def update_user():
 
     user_id = input("Enter the User ID of the user you want to update:")
 
-    worksheet = SHEET.worksheet('User')
+    worksheet = SHEET.worksheet('Issue')
     user_rows = worksheet.get_all_values()
     user_row = None
     for row in user_rows[1:]:
@@ -120,9 +120,11 @@ def update_user():
         return 
 
     print(f"Current results for user {user_id}:")
-    print(f"Category: {user_row[1]}")
-    print(f"Issue Description: {user_row[2]}")
-    print(f"Contact Number: {user_row[3]}")
+    print(f"Category: {user_row[2]}")
+    print(f"Issue Description: {user_row[3]}")
+    print(f"Forename: {user_row[4]}")
+    print(f"Surname: {user_row[5]}")
+    print(f"Contact Number: {user_row[6]}")
 
 
 while True:
