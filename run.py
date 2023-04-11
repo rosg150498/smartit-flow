@@ -21,7 +21,14 @@ GSPREAD_CLIENT = gspread.authorize(SCOPE_CREDS)
 SHEET = GSPREAD_CLIENT.open('SmartIT-Flow')
 
 
+# Updating cell heading to D1 and E1 to Google Sheets to Issue sheet
+worksheet = SHEET.worksheet('Issue')
+worksheet.add_cols(2)
+worksheet.update_cell(1, 4, 'Forename')
+worksheet.update_cell(1, 5, 'Surname')
+
 # Increment User_ID by 1 for each entered user issue 
+
 
 def get_max_id():
     worksheet = SHEET.worksheet('Issue')
