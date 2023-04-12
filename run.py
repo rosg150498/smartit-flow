@@ -127,6 +127,21 @@ def update_user():
     print(f"Contact Number: {user_row[6]}")
 
 
+# Define a function to edit the issue sheet
+def edit_sheet():
+    row_num = input('Enter the row number you want to edit: ')
+    col_num = input('Enter the column number you want to edit: ')
+    new_value = input('Enter the new value you want to set: ')
+    worksheet.update_cell(row_num, col_num, new_value)
+    print('Value updated successfully.')
+
+
+edit_sheet()
+
+
+# Call the edit_sheet() function to make changes to the sheet
+edit_sheet()
+
 while True:
     action = input('Enter action (search / add / update / delete / quit): ')
 
@@ -163,6 +178,7 @@ while True:
 
     else: 
         print("Invalid input.Please enter 'search', 'add', 'update' or 'quit'")
+
 
 user_issues = SHEET.worksheet('Issue')
 
