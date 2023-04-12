@@ -136,9 +136,6 @@ def edit_sheet():
     print('Value updated successfully.')
 
 
-edit_sheet()
-
-
 # Call the edit_sheet() function to make changes to the sheet
 edit_sheet()
 
