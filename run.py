@@ -137,7 +137,10 @@ def edit_sheet():
     print('Value updated successfully.')
 
 
+print('Welcome to SmartITFlow, the IT Issue Tracking Management System!')
+
 while True:
+
     action = input('Enter action (search / add / update / delete / quit): ')
 
     if action == 'search':
