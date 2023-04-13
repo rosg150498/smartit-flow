@@ -27,6 +27,7 @@ worksheet.add_cols(2)
 worksheet.update_cell(1, 4, 'Forename')
 worksheet.update_cell(1, 5, 'Surname')
 
+
 # Increment User_ID by 1 for each entered user issue 
 
 
@@ -135,9 +136,6 @@ def edit_sheet():
     worksheet.update_cell(row_num, col_num, new_value)
     print('Value updated successfully.')
 
-
-# Call the edit_sheet() function to make changes to the sheet
-edit_sheet()
 
 while True:
     action = input('Enter action (search / add / update / delete / quit): ')
