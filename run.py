@@ -62,6 +62,10 @@ issue_id_formatted = ''
 def add_issue():
     issue_id_counter = get_max_id() + 1
 
+    print("Add Issue")
+
+    print("----------")
+
     issue_description = input("Enter issue description: ")
 
     while True:
@@ -172,7 +176,8 @@ while True:
         print(f"The User with ID {user_id} has been deleted.")
 
     elif action == 'quit':
-        break
+       
+        exit_program = True
 
     else: 
         print("Invalid input.Please enter 'search', 'add', 'update' or 'quit'")
