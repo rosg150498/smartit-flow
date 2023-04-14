@@ -62,7 +62,7 @@ issue_id_formatted = ''
 def add_issue():
     issue_id_counter = get_max_id() + 1
 
-    print("Add Issue")
+    print("Welcome to the add user issue action !")
 
     print("----------")
 
