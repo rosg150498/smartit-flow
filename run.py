@@ -158,6 +158,7 @@ while True:
         update_user()
 
     elif action == 'delete':
+        print("Welcome to the delete user action!")
         user_id = input("Enter the User ID of the user you want to delete: ")
 
         worksheet = SHEET.worksheet('Issue')
