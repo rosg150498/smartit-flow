@@ -111,6 +111,8 @@ issue_date_created = issue_date_created
 
 def update_user():
 
+    print("Welcome to the update user issue action!")
+
     user_id = input("Enter the User ID of the user you want to update:")
 
     worksheet = SHEET.worksheet('Issue')
