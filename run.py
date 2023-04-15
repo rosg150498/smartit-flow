@@ -109,6 +109,8 @@ contact_number = contact_number
 issue_date_created = issue_date_created
 
 
+# Define update user function, prompt user to input User ID and edit issue info
+
 def update_user():
 
     print("Welcome to the update user issue action!")
