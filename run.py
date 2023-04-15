@@ -154,6 +154,8 @@ print('Welcome to SmartITFlow, the IT Issue Tracking Management System!')
 
 while True:
 
+    # Define user input actions and specified functions
+
     action = input('Enter action (search / add / update / delete / quit): ')
 
     if action == 'search':
