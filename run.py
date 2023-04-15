@@ -59,6 +59,8 @@ issue_date_created = ''
 issue_id_formatted = ''
 
 
+# Define add issue function and prompt user to add issue related information
+
 def add_issue():
     issue_id_counter = get_max_id() + 1
 
