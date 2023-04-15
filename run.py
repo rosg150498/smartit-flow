@@ -40,6 +40,9 @@ def get_max_id():
     return int(max_id)
 
 
+# Define search issues function, returning issue information on search criteria  
+
+
 def search_issues(search_term):
     values = SHEET.worksheet('Issue').get_all_values()
 
