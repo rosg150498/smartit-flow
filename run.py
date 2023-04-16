@@ -42,7 +42,6 @@ def get_max_id():
 
 # Define search issues function, returning issue information on search criteria  
 
-
 def search_issues(search_term):
     values = SHEET.worksheet('Issue').get_all_values()
 
@@ -65,6 +64,7 @@ issue_id_formatted = ''
 # Define add issue function and prompt user to add issue related information
 
 def add_issue():
+
     issue_id_counter = get_max_id() + 1
 
     print("Welcome to the add user issue action !")
@@ -104,7 +104,13 @@ def add_issue():
         issue_date_created.strftime("%d/%m/%Y %H:%M:%S")
     ])
 
-    print("Issue has been added successfully!")
+    try:
+
+        print("Issue has been added successfully!")
+
+    except Exception as e:
+        print(f"An error occured while adding an issue: {e}")
+        exit()
 
 
 issue_id_formatted = issue_id_formatted
@@ -154,7 +160,7 @@ print('Welcome to SmartITFlow, the IT Issue Tracking Management System!')
 
 while True:
 
-    # Define user input actions and specified functions
+    # Define user input actions adding specified functions
 
     action = input('Enter action (search / add / update / delete / quit): ')
 
@@ -209,4 +215,4 @@ print("User Contact Number:", contact_number)
 
 print("IT Issue Date Created:", issue_date_created)
 
-print(issues)     
+print(issues) 
