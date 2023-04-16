@@ -54,12 +54,16 @@ def search_issues(search_term):
                 break
     
     if results:
-        print(f"Search results for '{search_term}':")
-        for issue in results:
-            print("\t".join(issue))
-    else:
-        print(f"No results found for '{search_term}'.")
 
+        try:
+            print(f"Search results for '{search_term}':")
+
+            for issue in results:
+                print("\t".join(issue))
+             
+        except Exception as e:
+            print(f"No results found for '{search_term} {e}'.")
+            
 
 chosen_category = ''
 issue_description = ''
