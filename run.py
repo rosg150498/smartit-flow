@@ -43,15 +43,22 @@ def get_max_id():
 # Define search issues function, returning issue information on search criteria  
 
 def search_issues(search_term):
-    values = SHEET.worksheet('Issue').get_all_values()
+    worksheet = SHEET.worksheet('Issue')
+    issues = worksheet.get_all_values()
 
-    matching_rows = [
-        row for row in values[1:] if
-        search_term.lower() in (row[0].lower(),
-                                row[3].lower())]
-
-    for row in matching_rows:
-        print(row)
+    results = []
+    for issue in issues[1:]:
+        for value in issue:
+            if search_term.lower() in value.lower():
+                results.append(issue)
+                break
+    
+    if results:
+        print(f"Search results for '{search_term}':")
+        for issue in results:
+            print("\t".join(issue))
+    else:
+        print(f"No results found for '{search_term}'.")
 
 
 chosen_category = ''
