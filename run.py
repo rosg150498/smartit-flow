@@ -146,8 +146,10 @@ def update_user():
         if row[0] == user_id: 
             user_row = row
             break
-    if user_row is None:
-        print(f"No user found with ID {user_id}.")
+        try:
+            print("User Issue has been updated!")
+        except Exception as e:
+            print(f"No user found with ID {user_id}. {e}")
         return 
 
     print(f"Current results for user {user_id}:")
