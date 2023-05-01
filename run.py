@@ -8,6 +8,8 @@ from datetime import datetime
 import gspread 
 from google.oauth2.service_account import Credentials
 
+import sys
+
 SCOPE = [
    "https://www.googleapis.com/auth/spreadsheets",
    "https://www.googleapis.com/auth/drive.file",
@@ -171,6 +173,12 @@ def edit_sheet():
 
 print('Welcome to SmartITFlow, the IT Issue Tracking Management System!')
 
+
+def quit():
+    print("Exiting SmartITFlow...")
+    sys.exit()
+
+
 while True:
 
     # Define user input actions adding specified functions
@@ -208,7 +216,7 @@ while True:
 
     elif action == 'quit':
        
-        exit_program = True
+        quit() 
 
     else: 
         print("Invalid input.Please enter 'search', 'add', 'update' or 'quit'")
