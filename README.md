@@ -68,4 +68,4 @@ Technician_ID will serve as an unique identifier, while First_Name and Last_Name
  * The ability to generate reports and statistics on the status of issues and the performance of technicians.
  * The ability to send notifications to technicians or users when issues are updated or resolved.
  * The system should be secure and protect user data including contact number and issue information.
- * The system should be scalale and able to handle a growing number of issues and users.
+ * The system should be scalable and able to handle a growing number of issues and users.
