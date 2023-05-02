@@ -42,6 +42,11 @@ def get_max_id():
     return int(max_id)
 
 
+print('Welcome to SmartITFlow, the IT Issue Tracking Management System!')
+
+action = input('Enter action (search / add / update / delete / quit): ')
+
+
 # Define search issues function, returning issue information on search criteria  
 
 def search_issues(search_term):
@@ -150,7 +155,7 @@ while not row_num:
         print(f"No rows found for User_ID '{user_id}'")
         user_id = input('Enter the User_ID: ')
             
-    # Ask the user which field they want to edit
+    # Ask the user which field they want to update
 field_names = ['Category', 'Issue Description', 'Forename', 'Surname', 
                'Contact Number', 'Priority Level', 'Due_Date', 'Status', 
                'Resolution_Time', 'Resolution_Notes']
@@ -203,8 +208,6 @@ def quit():
 while True:
 
     # Define user input actions adding specified functions
-
-    action = input('Enter action (search / add / update / delete / quit): ')
 
     if action == 'search':
         search_term = input('Enter search term: ')
