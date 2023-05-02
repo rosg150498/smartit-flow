@@ -65,7 +65,7 @@ def search_issues(search_term):
              
         except Exception as e:
             print(f"No results found for '{search_term} {e}'.")
-            
+
 
 chosen_category = ''
 issue_description = ''
@@ -133,45 +133,66 @@ contact_number = contact_number
 issue_date_created = issue_date_created
 
 
-# Define update user function, prompt user to input User ID and edit issue info
+# Define a function to update the issue sheet
+def update_issue():
+    
+    print('Welcome to SmartITFlow, the IT Issue Tracking Management System!')
 
-def update_user():
 
-    print("Welcome to the update user issue action!")
+worksheet = SHEET.worksheet('Issue')
+user_id = input('Enter the User_ID: ')
+row_num = None
+while not row_num:
+    # Find the row number for the given User_ID
+    user_ids = worksheet.col_values(1)
+    row_num = user_ids.index(user_id) + 1 if user_id in user_ids else None
+    if not row_num:
+        print(f"No rows found for User_ID '{user_id}'")
+        user_id = input('Enter the User_ID: ')
+            
+    # Ask the user which field they want to edit
+field_names = ['Category', 'Issue Description', 'Forename', 'Surname', 
+               'Contact Number', 'Priority Level', 'Due_Date', 'Status', 
+               'Resolution_Time', 'Resolution_Notes']
+field_num = None
+while not field_num:
+    print("Which field do you want to update?")
+    for i, name in enumerate(field_names):
+        print(f"{i+1}. {name}")
+    choice = input("Enter the number corresponding to the field: ")
+    if choice.isdigit() and int(choice) in range(1, len(field_names)+1):
+        field_num = int(choice)
+    else:
+        print("Invalid choice. Please enter a valid number.")
+    
+    # Ask the user for the new value
+    new_value = input(f"Enter the new value for {field_names[field_num-1]}: ")
+    
+    # Update the appropriate column in the row for the given User_ID
+    col_num = field_num + 1  # Column 1 is the User_ID column
+    worksheet.update_cell(row_num, col_num, new_value)
+    print(f"{field_names[field_num-1]} for User_ID '{user_id}' " 
+          f"updated with value '{new_value}'")
 
-    user_id = input("Enter the User ID of the user you want to update:")
+
+def delete_issue():
+
+    print("Welcome to the delete user action!")
+    user_id = input("Enter the User ID of the user you want to delete: ")
 
     worksheet = SHEET.worksheet('Issue')
     user_rows = worksheet.get_all_values()
     user_row = None
     for row in user_rows[1:]:
-        if row[0] == user_id: 
+        if row[0] == user_id:
             user_row = row
             break
-        try:
-            print("User Issue has been updated!")
-        except Exception as e:
-            print(f"No user found with ID {user_id}. {e}")
-        return 
 
-    print(f"Current results for user {user_id}:")
-    print(f"Category: {user_row[2]}")
-    print(f"Issue Description: {user_row[3]}")
-    print(f"Forename: {user_row[4]}")
-    print(f"Surname: {user_row[5]}")
-    print(f"Contact Number: {user_row[6]}")
+    if user_row is None:
+        print(f"No user is found with ID {user_id}.") 
 
-
-# Define a function to edit the issue sheet
-def edit_sheet():
-    row_num = input('Enter the row number you want to edit: ')
-    col_num = input('Enter the column number you want to edit: ')
-    new_value = input('Enter the new value you want to set: ')
-    worksheet.update_cell(row_num, col_num, new_value)
-    print('Value updated successfully.')
-
-
-print('Welcome to SmartITFlow, the IT Issue Tracking Management System!')
+    worksheet.delete_row(user_rows.index(user_row)+1)
+    print(f"The User with ID {user_id} has been deleted.")
 
 
 def quit():
@@ -193,29 +214,12 @@ while True:
         add_issue()
 
     elif action == 'update':
-        update_user()
+        update_issue()
 
     elif action == 'delete':
-        print("Welcome to the delete user action!")
-        user_id = input("Enter the User ID of the user you want to delete: ")
-
-        worksheet = SHEET.worksheet('Issue')
-        user_rows = worksheet.get_all_values()
-        user_row = None
-        for row in user_rows[1:]:
-            if row[0] == user_id:
-                user_row = row
-                break
-
-        if user_row is None:
-            print(f"No user is found with ID {user_id}.") 
-            continue
-
-        worksheet.delete_row(user_rows.index(user_row)+1)
-        print(f"The User with ID {user_id} has been deleted.")
+        delete_issue()
 
     elif action == 'quit':
-       
         quit() 
 
     else: 
