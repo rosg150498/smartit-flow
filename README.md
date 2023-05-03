@@ -75,3 +75,5 @@ Technician_ID will serve as an unique identifier, while First_Name and Last_Name
 ## Languages / Frameworks Used
 
 ## Deployment
+
+## References / Sources of Inspiration
