@@ -82,6 +82,17 @@ I decided to keep my system simple without being able to assign technicians, gen
 
 ## Languages / Frameworks Used
 
+* Python
+* Gspread
+* Google Auth
+
 ## Deployment
 
-## References / Sources of Inspiration
+The project was created by pushing relevant commits step by step to each section of the web page and was deployed using GitHub by the following steps.
+
+*Navigate to the repository on github and click 'Settings'.
+*Then select 'Pages' on the side navigation.
+*Select the 'None' dropdown, and then click 'master'.
+*Click on the 'Save' button.
+*Now the website is now live on (https://rosg150498.github.io/smartit-flow/)
+*If any changes were required, they can be done, commited and pushed to GitHub and the changes will be updated
