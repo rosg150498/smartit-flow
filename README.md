@@ -72,6 +72,14 @@ Technician_ID will serve as an unique identifier, while First_Name and Last_Name
 
 ## Testing
 
+I have tested the system and I produced the following results:
+
+![testing](https://user-images.githubusercontent.com/114010857/235896481-90edf253-0cb9-4211-ab8b-9abf3aa3b447.png)
+
+![testing_1](https://user-images.githubusercontent.com/114010857/235896603-07b489a6-36af-4059-ac47-ef59e01c35f3.png)
+
+I decided to keep my system simple without being able to assign technicians, generate reports or send notifications to technicians.This is something I could work on in the future to improve this finalised IT management system. I tested in lint and recieved no errors.
+
 ## Languages / Frameworks Used
 
 ## Deployment
