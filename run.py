@@ -50,6 +50,11 @@ action = input('Enter action (search / add / update / delete / quit): ')
 # Define search issues function, returning issue information on search criteria  
 
 def search_issues(search_term):
+
+    print("Welcome to the search user issue action !")
+
+    print("----------")
+
     worksheet = SHEET.worksheet('Issue')
     issues = worksheet.get_all_values()
 
@@ -70,6 +75,9 @@ def search_issues(search_term):
              
         except Exception as e:
             print(f"No results found for '{search_term} {e}'.")
+
+    print(action=input(
+        'Enter action (search / add / update / delete / quit):'))
 
 
 chosen_category = ''
@@ -128,7 +136,7 @@ def add_issue():
 
     except Exception as e:
         print(f"An error occured while adding an issue: {e}")
-        exit()
+        sys.exit()
 
 
 issue_id_formatted = issue_id_formatted
@@ -139,50 +147,14 @@ issue_date_created = issue_date_created
 
 
 # Define a function to update the issue sheet
-def update_issue():
-    
-    print('Welcome to SmartITFlow, the IT Issue Tracking Management System!')
-
-
-worksheet = SHEET.worksheet('Issue')
-user_id = input('Enter the User_ID: ')
-row_num = None
-while not row_num:
-    # Find the row number for the given User_ID
-    user_ids = worksheet.col_values(1)
-    row_num = user_ids.index(user_id) + 1 if user_id in user_ids else None
-    if not row_num:
-        print(f"No rows found for User_ID '{user_id}'")
-        user_id = input('Enter the User_ID: ')
-            
-    # Ask the user which field they want to update
-field_names = ['Category', 'Issue Description', 'Forename', 'Surname', 
-               'Contact Number', 'Priority Level', 'Due_Date', 'Status', 
-               'Resolution_Time', 'Resolution_Notes']
-field_num = None
-while not field_num:
-    print("Which field do you want to update?")
-    for i, name in enumerate(field_names):
-        print(f"{i+1}. {name}")
-    choice = input("Enter the number corresponding to the field: ")
-    if choice.isdigit() and int(choice) in range(1, len(field_names)+1):
-        field_num = int(choice)
-    else:
-        print("Invalid choice. Please enter a valid number.")
-    
-    # Ask the user for the new value
-    new_value = input(f"Enter the new value for {field_names[field_num-1]}: ")
-    
-    # Update the appropriate column in the row for the given User_ID
-    col_num = field_num + 1  # Column 1 is the User_ID column
-    worksheet.update_cell(row_num, col_num, new_value)
-    print(f"{field_names[field_num-1]} for User_ID '{user_id}' " 
-          f"updated with value '{new_value}'")
 
 
 def delete_issue():
 
-    print("Welcome to the delete user action!")
+    print("Welcome to the delete user issue action !")
+
+    print('----------')
+
     user_id = input("Enter the User ID of the user you want to delete: ")
 
     worksheet = SHEET.worksheet('Issue')
@@ -215,9 +187,6 @@ while True:
 
     elif action == 'add issue':
         add_issue()
-
-    elif action == 'update':
-        update_issue()
 
     elif action == 'delete':
         delete_issue()
